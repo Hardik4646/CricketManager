@@ -1,5 +1,6 @@
 import json
 import random
+import math
 import time
 import inquirer
 
@@ -93,7 +94,7 @@ def bowlSim(role, b_skill, intent):
 
 
 def mainMenu():
-    teams = ["A", "B", "C"]
+
     q = [
         inquirer.List('userT', message="Choose your Team : ",
                       choices=availT)
@@ -106,8 +107,35 @@ def mainMenu():
 
     while oppTeam == userTeam or oppTeam == None:
         q = [
-            inquirer.List("oppT")
+            inquirer.List(
+                "oppT", message="Choose your Opponent's Team", choices=availT)
         ]
+        a = inquirer.prompt(q)
+        oppTeam = a["oppT"]
+
+        if oppTeam == userTeam:
+            print("You can't play against your own team !")
+        elif oppTeam == None:
+            print("Please select a team to start match")
+
+    print(f"It's {userTeam} VS {oppTeam}! Its time for Toss!")
+
+    # Toss
+    tWin = None
+    call = None
+    elect = None
+
+    t = [
+        inquirer.List("call", message="What's Your Call",
+                      choices=("Heads", "Tails"))
+    ]
+
+    toss = inquirer.prompt(t)
+    call = t["call"]
+
+    if math.random() >= 0.5:
+        if call == "Heads":
+            tWin = userTeam
 
 
 def matchSim():
