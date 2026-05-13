@@ -1,7 +1,7 @@
 import json
 import random
 import time
-# Importing Teams
+import inquirer
 
 
 def teamLoad():
@@ -9,20 +9,26 @@ def teamLoad():
     teams = open("team.json", "r")
     team_d = json.load(teams)
 
+    availTeams = []
+
+    for team_id in team_d:
+        fName = team_d[team_id]["name"]
+
+        availTeams.append(fName)
     # Team storage
-    team_a = team_d["team_a"]
+    team_a = team_d["MI"]
     nameA = team_a["name"]
     playersA = team_a["players"]
 
-    team_b = team_d["team_b"]
+    team_b = team_d["RCB"]
     nameB = team_b["name"]
     playersB = team_b["players"]
 
-    return nameA, playersA, nameB, playersB
+    return nameA, playersA, nameB, playersB, team_d, availTeams
 
 
 # Ball Logics
-nameA, playersA, nameB, playersB = teamLoad()
+nameA, playersA, nameB, playersB, data, availT = teamLoad()
 
 oc = [0, 1, 2, 3, 4, 5, 6, 'WK', 'WD', 'NB']
 wick = ['Bowled', 'Caught',  'Caught Behind',
@@ -84,6 +90,24 @@ def bowlSim(role, b_skill, intent):
         result = random.choice(wick)
 
     return result
+
+
+def mainMenu():
+    teams = ["A", "B", "C"]
+    q = [
+        inquirer.List('userT', message="Choose your Team : ",
+                      choices=availT)
+    ]
+
+    ans = inquirer.prompt(q)
+    userTeam = ans["userT"]
+
+    oppTeam = None
+
+    while oppTeam == userTeam or oppTeam == None:
+        q = [
+            inquirer.List("oppT")
+        ]
 
 
 def matchSim():
@@ -190,6 +214,7 @@ def matchSim():
             if p["balls_faced"] > 0 or p == striker or p == nStriker:
 
                 name_padded = p["name"].ljust(20)
+
                 if p['isNotOut']:
                     print(
                         f"{name_padded} {p['runs_scored']}* ({p['balls_faced']})  || SR : {p['SR']}  4s: {p['4s']}  6s: {p['6s']}")
@@ -217,4 +242,4 @@ def matchSim():
         print(f"{fBat} have won the match by {scoreA - scoreB} runs!")
 
 
-matchSim()
+mainMenu()

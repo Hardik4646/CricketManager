@@ -1,189 +1,188 @@
 {
-    "team_a":{
+    "MI": {
         "name": "Mumbai Indians",
-        "players":[
+        "players": [
             {
-                "name":"Rohit Sharma",
-                "type":"Batsman",
-                "role":"Top Order",
-                "b-skill":"95",
-                "bo-skill":"25",
-                "b-type":"Off-Spin"
+                "name": "Rohit Sharma",
+                "type": "Batsman",
+                "role": "Top Order",
+                "b-skill": "95",
+                "bo-skill": "25",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Ryan Rickelton",
-                "type":"WK",
-                "role":"Top Order",
-                "b-skill":"87",
-                "bo-skill":"2",
-                "b-type":null
+                "name": "Ryan Rickelton",
+                "type": "WK",
+                "role": "Top Order",
+                "b-skill": "87",
+                "bo-skill": "2",
+                "b-type": null
             },
             {
-                "name":"Surya Kumar Yadav",
-                "type":"Batsman",
-                "role":"Top Order",
-                "b-skill":"88",
-                "bo-skill":"15",
-                "b-type":"Medium"
+                "name": "Surya Kumar Yadav",
+                "type": "Batsman",
+                "role": "Top Order",
+                "b-skill": "88",
+                "bo-skill": "15",
+                "b-type": "Medium"
             },
             {
-                "name":"Naman Dhir",
-                "type":"Batsman",
-                "role":"Middle Order",
-                "b-skill":"81",
-                "bo-skill":"55",
-                "b-type":"Off-Spin"
+                "name": "Naman Dhir",
+                "type": "Batsman",
+                "role": "Middle Order",
+                "b-skill": "81",
+                "bo-skill": "55",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Hardik Pandya",
-                "type":"All Rounder",
-                "role":"Middle Order",
-                "b-skill":"87",
-                "bo-skill":"80",
-                "b-type":"Fast"
+                "name": "Hardik Pandya",
+                "type": "All Rounder",
+                "role": "Middle Order",
+                "b-skill": "87",
+                "bo-skill": "80",
+                "b-type": "Fast"
             },
             {
-                "name":"Tilak Varma",
-                "type":"Batsman",
-                "role":"Top Order",
-                "b-skill":"86",
-                "bo-skill":"60",
-                "b-type":"Off-Spin"
+                "name": "Tilak Varma",
+                "type": "Batsman",
+                "role": "Top Order",
+                "b-skill": "86",
+                "bo-skill": "60",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Sherfane Rutherford",
-                "type":"All Rounder",
-                "role":"Middle Order",
-                "b-skill":"87",
-                "bo-skill":"68",
-                "b-type":"Med-Fast"
+                "name": "Sherfane Rutherford",
+                "type": "All Rounder",
+                "role": "Middle Order",
+                "b-skill": "87",
+                "bo-skill": "68",
+                "b-type": "Med-Fast"
             },
             {
-                "name":"Allah Ghazanfar",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"12",
-                "bo-skill":"85",
-                "b-type":"Off-Spin"
+                "name": "Allah Ghazanfar",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "12",
+                "bo-skill": "85",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Trent Boult",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"20",
-                "bo-skill":"91",
-                "b-type":"Fast"
+                "name": "Trent Boult",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "20",
+                "bo-skill": "91",
+                "b-type": "Fast"
             },
             {
-                "name":"Jasprit Bumrah",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"15",
-                "bo-skill":"95",
-                "b-type":"Fast"
+                "name": "Jasprit Bumrah",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "15",
+                "bo-skill": "95",
+                "b-type": "Fast"
             },
             {
-                "name":"Deepak Chahar",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"60",
-                "bo-skill":"84",
-                "b-type":"Fast"
+                "name": "Deepak Chahar",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "60",
+                "bo-skill": "84",
+                "b-type": "Fast"
             }
         ]
     },
-    "team_b":{
+    "RCB": {
         "name": "Royal Challengers Banglore",
-        "players":[
+        "players": [
             {
-                "name":"Phil Salt",
-                "type":"WK",
-                "role":"Top Order",
-                "b-skill":"87",
-                "bo-skill":2,
-                "b-type":null
+                "name": "Phil Salt",
+                "type": "WK",
+                "role": "Top Order",
+                "b-skill": "87",
+                "bo-skill": 2,
+                "b-type": null
             },
             {
-                "name":"Virat Kohli",
-                "type":"Batsman",
-                "role":"Top Order",
-                "b-skill":"95",
-                "bo-skill":"20",
-                "b-type":"Medium"
+                "name": "Virat Kohli",
+                "type": "Batsman",
+                "role": "Top Order",
+                "b-skill": "95",
+                "bo-skill": "20",
+                "b-type": "Medium"
             },
             {
-                "name":"Devdutt Padikal",
-                "type":"Batsman",
-                "role":"Top Order",
-                "b-skill":"84",
-                "bo-skill":"5",
-                "b-type":null
+                "name": "Devdutt Padikal",
+                "type": "Batsman",
+                "role": "Top Order",
+                "b-skill": "84",
+                "bo-skill": "5",
+                "b-type": null
             },
             {
-                "name":"Rajat Patidar",
-                "type":"Batsman",
-                "role":"Middle Order",
-                "b-skill":"86",
-                "bo-skill":"5",
-                "b-type":null
+                "name": "Rajat Patidar",
+                "type": "Batsman",
+                "role": "Middle Order",
+                "b-skill": "86",
+                "bo-skill": "5",
+                "b-type": null
             },
             {
-                "name":"Jitesh Sharma",
-                "type":"WK",
-                "role":"Middle Order",
-                "b-skill":"82",
-                "bo-skill":"0",
-                "b-type":null
+                "name": "Jitesh Sharma",
+                "type": "WK",
+                "role": "Middle Order",
+                "b-skill": "82",
+                "bo-skill": "0",
+                "b-type": null
             },
             {
-                "name":"Tim David",
-                "type":"Batsman",
-                "role":"Middle Order",
-                "b-skill":"87",
-                "bo-skill":"40",
-                "b-type":"Off-Spin"
+                "name": "Tim David",
+                "type": "Batsman",
+                "role": "Middle Order",
+                "b-skill": "87",
+                "bo-skill": "40",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Romario Shepherd",
-                "type":"All Rounder",
-                "role":"Middle Order",
-                "b-skill":"84",
-                "bo-skill":"70",
-                "b-type":"Med-Fast"
+                "name": "Romario Shepherd",
+                "type": "All Rounder",
+                "role": "Middle Order",
+                "b-skill": "84",
+                "bo-skill": "70",
+                "b-type": "Med-Fast"
             },
             {
-                "name":"Krunal Pandya",
-                "type":"All Rounder",
-                "role":"Lower Order",
-                "b-skill":"78",
-                "bo-skill":"85",
-                "b-type":"Off-Spin"
+                "name": "Krunal Pandya",
+                "type": "All Rounder",
+                "role": "Lower Order",
+                "b-skill": "78",
+                "bo-skill": "85",
+                "b-type": "Off-Spin"
             },
             {
-                "name":"Josh Hazelwood",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"20",
-                "bo-skill":"91",
-                "b-type":"Fast"
+                "name": "Josh Hazelwood",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "20",
+                "bo-skill": "91",
+                "b-type": "Fast"
             },
             {
-                "name":"Bhuvneshwar Kumar",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"35",
-                "bo-skill":"90",
-                "b-type":"Fast"
+                "name": "Bhuvneshwar Kumar",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "35",
+                "bo-skill": "90",
+                "b-type": "Fast"
             },
             {
-                "name":"Suyash Sharma",
-                "type":"Bowler",
-                "role":"Lower Order",
-                "b-skill":"20",
-                "bo-skill":"85",
-                "b-type":"Leg-Spin"
+                "name": "Suyash Sharma",
+                "type": "Bowler",
+                "role": "Lower Order",
+                "b-skill": "20",
+                "bo-skill": "85",
+                "b-type": "Leg-Spin"
             }
         ]
     }
-
 }
