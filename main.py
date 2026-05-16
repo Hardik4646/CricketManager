@@ -1,8 +1,21 @@
 import json
 import random
-import math
 import time
 import inquirer
+import sys
+
+
+def Mprint(text, speed=0.03):
+
+    for char in text:
+
+        sys.stdout.write(char)
+
+        sys.stdout.flush()
+
+        time.sleep(speed)
+
+    print()
 
 
 def teamLoad():
@@ -16,20 +29,12 @@ def teamLoad():
         fName = team_d[team_id]["name"]
 
         availTeams.append(fName)
-    # Team storage
-    team_a = team_d["MI"]
-    nameA = team_a["name"]
-    playersA = team_a["players"]
 
-    team_b = team_d["RCB"]
-    nameB = team_b["name"]
-    playersB = team_b["players"]
-
-    return nameA, playersA, nameB, playersB, team_d, availTeams
+    return team_d, availTeams
 
 
 # Ball Logics
-nameA, playersA, nameB, playersB, data, availT = teamLoad()
+data, availT = teamLoad()
 
 oc = [0, 1, 2, 3, 4, 5, 6, 'WK', 'WD', 'NB']
 wick = ['Bowled', 'Caught',  'Caught Behind',
@@ -42,6 +47,55 @@ role_weight = {
     "Lower Order":  [25, 20, 18, 1, 22, 1, 40, 10, 5, 5]
 
 }
+
+
+def toss(user, opp):
+
+    tWin = None
+    call = None
+    elect = None
+    t = [
+        inquirer.List("call", message="What's Your Call",
+                      choices=("Heads", "Tails"))
+    ]
+
+    tq = inquirer.prompt(t)
+    call = tq["call"]
+
+    if random.random() >= 0.5:
+        if call == "Heads":
+            tWin = user
+        else:
+            tWin = opp
+    else:
+        if call == "Tails":
+            tWin = user
+        else:
+            tWin = opp
+
+    if tWin == user:
+        e = [
+            inquirer.List(
+                "elect", message="You won the toss! What will you do first ?", choices=("Bat", "Bowl"))
+        ]
+        Mprint(f"{call} is the call and {call} it is!")
+
+        eq = inquirer.prompt(e)
+        haveToDo = eq["elect"]
+    else:
+        if call == "Heads":
+            callNot = "Tails"
+        if call == "Heads":
+            callNot = "Tails"
+        Mprint(f"{call} is the call and {callNot} it is!")
+        if random.random() >= 0.5:
+            haveToDo = "Bat"
+            Mprint(f"{opp} won the toss and have decided to bowl first!")
+        else:
+            haveToDo = "Bowl"
+            Mprint(f"{opp} won the toss and have decided to bat first!")
+
+    return haveToDo, tWin
 
 
 def bowlSim(role, b_skill, intent):
@@ -114,37 +168,40 @@ def mainMenu():
         oppTeam = a["oppT"]
 
         if oppTeam == userTeam:
-            print("You can't play against your own team !")
+            Mprint("You can't play against your own team !")
         elif oppTeam == None:
-            print("Please select a team to start match")
+            Mprint("Please select a team to start match")
 
-    print(f"It's {userTeam} VS {oppTeam}! Its time for Toss!")
+    Mprint(f"It's {userTeam} VS {oppTeam}! Its time for Toss!")
 
-    # Toss
-    tWin = None
-    call = None
-    elect = None
+    haveToDo, tWin = toss(userTeam, oppTeam)
+    uRost = get_roster_by_name(data, userTeam)
+    oRost = get_roster_by_name(data, oppTeam)
 
-    t = [
-        inquirer.List("call", message="What's Your Call",
-                      choices=("Heads", "Tails"))
-    ]
-
-    toss = inquirer.prompt(t)
-    call = t["call"]
-
-    if math.random() >= 0.5:
-        if call == "Heads":
-            tWin = userTeam
+    matchSim(tWin, haveToDo, userTeam, oppTeam, uRost, oRost)
 
 
-def matchSim():
+def get_roster_by_name(all_teams, selected_name):
+    for team_key, team_data in all_teams.items():
+        if team_data["name"] == selected_name:
+            return team_data["players"]
+    return []
+
+
+def matchSim(tWin, have, user, opp, userRost, oppRost):
+
     Inning = 1
-    fBat = nameA
-    fBatP = playersA
+    if have == "Bat":
+        fBat = user
+        fBatP = userRost
+        sBat = opp
+        sBatP = oppRost
+    else:
+        fBat = opp
+        fBatP = oppRost
+        sBat = opp
+        sBatP = oppRost
 
-    sBat = nameB
-    sBatP = playersB
     target = 0
 
     def Inn(team, players, target=None):
@@ -169,8 +226,8 @@ def matchSim():
 
         while tOver != 5:
             print(f"\n===========================================")
-            print(f"   START OF OVER {tOver + 1} | Score: {tRun}/{tWick}")
-            print(
+            Mprint(f"   START OF OVER {tOver + 1} | Score: {tRun}/{tWick}")
+            Mprint(
                 f"   On Strike: {striker['name']} | Non-Strike: {nStriker['name']}")
             print(f"===========================================")
 
@@ -180,7 +237,7 @@ def matchSim():
             if user_intent not in ["1", "3"]:
                 user_intent = "2"
 
-            print("\nBowling the over...\n")
+            Mprint("\nBowling the over...\n")
             while curBall < 6:
 
                 result = bowlSim(
@@ -253,21 +310,19 @@ def matchSim():
         print(f"======================================\n")
         return tRun, tWick
 
-    print(
-        f"Its {fBat} VS {sBat}. {fBat} have won the Toss and decided to bat first! \n")
     scoreA, wickA = Inn(fBat, fBatP)
     target = scoreA + 1
 
-    print(f"{fBat} have scored {scoreA} for {wickA} wickets. {sBat} needs {target} runs in 5 Overs. \n")
+    Mprint(f"{fBat} have scored {scoreA} for {wickA} wickets. {sBat} needs {target} runs in 5 Overs. \n")
 
     scoreB, wickB = Inn(sBat, sBatP, target)
 
     if scoreB >= target:
-        print(f"{sBat} have won the match by {wickB} wickets !")
+        Mprint(f"{sBat} have won the match by {wickB} wickets !")
     elif scoreA == scoreB:
-        print(f" Its a tie between {fBat} and {sBat}")
+        Mprint(f" Its a tie between {fBat} and {sBat}")
     else:
-        print(f"{fBat} have won the match by {scoreA - scoreB} runs!")
+        Mprint(f"{fBat} have won the match by {scoreA - scoreB} runs!")
 
 
 mainMenu()
