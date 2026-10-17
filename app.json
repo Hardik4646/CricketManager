@@ -1,0 +1,25 @@
+{
+  "expo": {
+    "name": "PitchSide FC — Cricket Career Mode",
+    "slug": "pitchside-cricket-career",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0B0F17"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.pitchside.cricketcareer"
+    },
+    "android": {
+      "package": "com.pitchside.cricketcareer",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0F17"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
